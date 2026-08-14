@@ -62,8 +62,8 @@ export const registerUser = asyncHandler(async (req, res) => {
 
   logger.info(`OTP verification code generated and dispatched to ${email}`);
 
-  // Dispatch Email with OTP
-  await sendEmail({
+  // Dispatch Email with OTP (non-blocking)
+  sendEmail({
     to: email.toLowerCase(),
     subject: 'Your Interview AI Email Verification Code',
     text: `Your email verification code is ${generatedOtp}. It will expire in 10 minutes.`,
@@ -245,8 +245,8 @@ export const forgotPassword = asyncHandler(async (req, res) => {
   const corsOrigin = process.env.CORS_ORIGIN || 'http://localhost:5173';
   const resetLink = `${corsOrigin}/reset-password?token=${resetToken}`;
 
-  // Send email with live link
-  await sendEmail({
+  // Send email with live link (non-blocking)
+  sendEmail({
     to: user.email,
     subject: 'Reset Your Password - Interview AI',
     text: `Please use the following link to reset your password: ${resetLink}. It is valid for 1 hour.`,
@@ -421,8 +421,8 @@ export const resendOtp = asyncHandler(async (req, res) => {
 
   logger.info(`New OTP verification code generated and dispatched on resend request for ${normalizedEmail}`);
 
-  // 5. Send SMTP email
-  await sendEmail({
+  // 5. Send SMTP email (non-blocking)
+  sendEmail({
     to: normalizedEmail,
     subject: 'New Email Verification Code - Interview AI',
     text: `Your new email verification code is ${newOtp}. It expires in 10 minutes.`,

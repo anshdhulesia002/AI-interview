@@ -8,8 +8,8 @@ export const config = {
   nodeEnv: process.env.NODE_ENV || 'development',
 
   mongoUri:
-    process.env.MONGO_URI ||
     process.env.MONGODB_URI ||
+    process.env.MONGO_URI ||
     'mongodb://localhost:27017/interview-ai',
 
   jwtSecret:
