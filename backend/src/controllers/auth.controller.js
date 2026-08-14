@@ -60,7 +60,7 @@ export const registerUser = asyncHandler(async (req, res) => {
     otp: hashedOtp,
   });
 
-  logger.info(`OTP verification code generated and dispatched to ${email}`);
+  logger.info(`OTP verification code generated and dispatched to ${email}. Verification Code: [ ${generatedOtp} ]`);
 
   // Dispatch Email with OTP (non-blocking)
   sendEmail({
@@ -419,7 +419,7 @@ export const resendOtp = asyncHandler(async (req, res) => {
   pendingUser.createdAt = Date.now();
   await pendingUser.save();
 
-  logger.info(`New OTP verification code generated and dispatched on resend request for ${normalizedEmail}`);
+  logger.info(`New OTP verification code generated and dispatched on resend request for ${normalizedEmail}. Verification Code: [ ${newOtp} ]`);
 
   // 5. Send SMTP email (non-blocking)
   sendEmail({
