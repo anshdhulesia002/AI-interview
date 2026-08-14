@@ -135,7 +135,7 @@ export const VerifyEmailPage = () => {
           )}
 
           {/* 6-Digit OTP Boxes */}
-          <div className="flex justify-between gap-2 my-4">
+          <div className="flex justify-between gap-1.5 sm:gap-2 my-4">
             {otp.map((data, index) => (
               <input
                 key={index}
@@ -146,7 +146,7 @@ export const VerifyEmailPage = () => {
                 onChange={(e) => handleChange(e.target, index)}
                 onKeyDown={(e) => handleKeyDown(e, index)}
                 onFocus={(e) => e.target.select()}
-                className="w-12 h-14 text-center text-xl font-bold bg-surface-card border border-border-default rounded-xl text-content-primary focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-colors"
+                className="w-9 h-11 sm:w-12 sm:h-14 text-center text-lg sm:text-xl font-bold bg-surface-card border border-border-default rounded-lg sm:rounded-xl text-content-primary focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-colors"
               />
             ))}
           </div>

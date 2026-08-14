@@ -27,7 +27,7 @@ export const AuthLayout = ({ children, title, subtitle }) => {
         initial={{ opacity: 0, y: 20, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.4, ease: 'easeOut' }}
-        className="w-full max-w-md bg-surface-card border border-border-default rounded-3xl p-8 sm:p-10 shadow-2xl backdrop-blur-xl relative z-10"
+        className="w-full max-w-md bg-surface-card border border-border-default rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-xl relative z-10"
       >
         {/* Brand Header */}
         <div className="text-center mb-8 space-y-2">
